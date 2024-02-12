@@ -5,11 +5,16 @@ import NFTImage from './NFTImage';
 import NFTAvatars from './NFTAvatars';
 import NTFTitle from './NTFTitle';
 import NTFInfo from './NTFInfo';
+import { useNavigation } from '@react-navigation/native';
 
 function NFTCard({NFTData}) {
+    const navigation = useNavigation();
+    const pressHandler = () => {
+        navigation.navigate('NFT-details', {NFTData})
+    }
   return (
     <SafeAreaView style={styles.contianer}>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={pressHandler}>
             <NFTImage image={NFTData.image} imageStyles={styles.imageStyles}/>
         </TouchableOpacity>
         <View style={styles.cardTop}>

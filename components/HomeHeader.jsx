@@ -5,10 +5,43 @@ import avatar from '../assets/images/avatars/avatar03.jpg'
 import { MaterialIcons } from '@expo/vector-icons'
 import { MaterialCommunityIcons } from '@expo/vector-icons'
 
-const HomeHeader = () => {
+const HomeHeader = ({searchHandler}) => {
   return (
-    <View>
-      <Text>HomeHeader</Text>
+    <View style={styles.container}>
+      <View style={styles.header}>
+        <View>
+          <Image  
+              source={avatar}
+              resizeMode='contain'
+              style={{ width: 44, height: 44, borderRadius: 30 }}
+
+          />
+        </View>
+        <View>
+          <View style={{ flexDirection: 'row', alignItems: 'center', gap: 3 }}>
+            <Text style={styles.UserText}>MohamedMaghraby</Text>
+            <MaterialCommunityIcons 
+              name='check-decagram'
+              size={24}
+              color="white"
+            />
+          </View>
+          <View>
+            <Text style={{ color: COLORS.white }}>Creator</Text>
+          </View>
+        </View>
+      </View>
+      <View style={{ marginTop: SIZES.small, paddingHorizontal: 10 }}>
+        <View style={styles.searchContainer}>
+          <MaterialIcons name='search' size={24} color={COLORS.white} />
+          <TextInput 
+            placeholder='Search by NFT name'
+            placeholderTextColor={COLORS.white}
+            style={{ flex: 1, color: COLORS.white }}
+            onChangeText={searchHandler}
+          />
+        </View>
+      </View>
     </View>
   )
 }
